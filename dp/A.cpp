@@ -2,10 +2,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef vector<string> vs;
+typedef long long int ll;
 
 
 
 int main(){
-    cout<<(char)9;
     return 0;
 }
