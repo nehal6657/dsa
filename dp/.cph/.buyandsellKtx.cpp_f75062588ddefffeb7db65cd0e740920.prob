@@ -1,0 +1,1 @@
+{"name":"Local: buyandsellKtx","url":"/home/nehal/Desktop/dsa/dp/buyandsellKtx.cpp","tests":[{"id":1626787430175,"input":"6\n9\n6\n7\n6\n3\n8\n1","output":"5"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/nehal/Desktop/dsa/dp/buyandsellKtx.cpp","group":"local","local":true}

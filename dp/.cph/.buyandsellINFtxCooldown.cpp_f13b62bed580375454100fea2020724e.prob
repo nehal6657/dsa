@@ -1,0 +1,1 @@
+{"name":"Local: buyandsellINFtxCooldown","url":"/home/nehal/Desktop/dsa/dp/buyandsellINFtxCooldown.cpp","tests":[{"id":1626784227291,"input":"12\n10\n15\n17\n20\n16\n18\n22\n20\n22\n20\n23\n25\n3","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/nehal/Desktop/dsa/dp/buyandsellINFtxCooldown.cpp","group":"local","local":true}
