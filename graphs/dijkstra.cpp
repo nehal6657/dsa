@@ -3,74 +3,49 @@
 using namespace std;
 typedef vector<string> vs;
 typedef long long int ll;
-struct dj{
-    bool visited;
-    int cost;
-    int parent;
-    dj(){
-        visited = false;
-        cost = INT16_MAX;
-        parent = -1;
+
+class Edge{
+    public:
+    int v, cost;
+    Edge(int v1, int c){
+        cost = c;
+        v = v1;
     }
 };
-struct Graph
-{
-    int vertx;
-    bool visited;
-    int cost;
-    int parent;
-
-    Graph(int V){
-        vertx = V;
-        visited = false;
-        cost = INT_MAX;
-        parent = -1;
-    }
-};
-
-
-struct cmp{
-    bool operator()(const Graph &g1, const Graph &g2){
-        return g1.cost < g2.cost;
-    }
-};
-void dijkstra(int src, unordered_map<int, vector<pair<int,int>>> &m1){
-    /*priority_queue<Graph, vector<Graph>, cmp> pq;
-    pq.push(Graph(src));
-    while(!pq.empty()){
-        Graph gx = pq.top();
-        pq.pop();
-        for(pair<int,int> node: m1[gx.vertx]){
-
-
-        }
-
-
-    }*/
-    
-
-
+bool operator< (const Edge &e1, const Edge &e2){
+        return e1.cost > e2.cost;
 }
 
 
 int main(){
     int V, E;
     cin>>V>>E;
-    unordered_map<int, vector<pair<int,int>>> m1;
+    unordered_map<int, vector<Edge> > m1;
     for(int i=0;i<E;i++){
         int x,y,wt;
         cin>>x>>y>>wt;
         m1[x].push_back({y,wt});
         m1[y].push_back({x,wt});
     }
-    int dist[V], cost[V],visited[V];
-
-    for(int i=0; i < V; i++){
-        dist[i] = INT_MAX;
-        cost[i] = INT_MAX;
-        visited[i] = false;
+    vector<int> visited(V+1,0);
+    priority_queue<Edge> pq;
+    pq.push({0,0});
+    while(!pq.empty()){
+        Edge e1 = pq.top();
+        pq.pop();
+        if(visited[e1.v]){
+            continue;
+        }
+        else{
+            visited[e1.v] = 1;
+            cout<<e1.v<<" "<< e1.cost<<endl;
+            for(int i = 0;i< m1[e1.v].size(); i++){
+                if(visited[m1[e1.v][i].v] == 0){
+                    pq.push({m1[e1.v][i].v, e1.cost + m1[e1.v][i].cost});
+                }
+            }
+        }
     }
-
 
     return 0;
 }

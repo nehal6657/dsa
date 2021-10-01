@@ -32,7 +32,6 @@ void perm1(char s[], int l, int h){
 
         }
 
-
     }
 
     
